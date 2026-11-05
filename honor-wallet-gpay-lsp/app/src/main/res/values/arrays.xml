@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- LSPosed 默认作用域：荣耀钱包 + 系统框架（system_server 跳过锁屏） -->
+    <string-array name="xposed_scope">
+        <item>com.hihonor.wallet</item>
+        <item>android</item>
+    </string-array>
+</resources>

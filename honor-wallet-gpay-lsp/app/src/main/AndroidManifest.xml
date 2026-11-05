@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 信息页要读荣耀钱包 / Google Wallet 的版本与 Activity 列表 -->
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+
+    <queries>
+        <package android:name="com.hihonor.wallet" />
+        <package android:name="com.google.android.apps.walletnfcrel" />
+    </queries>
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+
+        <!-- LSPosed 模块声明 -->
+        <meta-data
+            android:name="xposedmodule"
+            android:value="true" />
+        <meta-data
+            android:name="xposedmodname"
+            android:value="荣耀钱包 GPay" />
+        <meta-data
+            android:name="xposeddescription"
+            android:value="在荣耀钱包刷卡页注入 Google Pay 药丸按钮：点击即把 NFC 默认支付切到 Google 并拉起 Google Wallet 快捷刷卡页" />
+        <meta-data
+            android:name="xposedminversion"
+            android:value="93" />
+        <meta-data
+            android:name="xposedscope"
+            android:resource="@array/xposed_scope" />
+
+        <!-- 模块信息页：荣耀钱包装没装、NFC 当前组件、候选刷卡页 -->
+        <activity
+            android:name="com.honorwallet.gpay.lsp.InfoActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.DeviceDefault.DayNight">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- root 通道：am start / settings put 由模块自己的 uid 执行 -->
+        <provider
+            android:name="com.honorwallet.gpay.lsp.RootCommandProvider"
+            android:authorities="com.honorwallet.gpay.lsp.root"
+            android:directBootAware="true"
+            android:exported="true" />
+    </application>
+
+</manifest>
