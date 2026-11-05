@@ -1,6 +1,5 @@
 # 荣耀钱包 GPay 快捷按钮 · LSPosed 模块
-
-把 [mipay_gpay_lsp](https://github.com/MasterOfStar/mipay_gpay_lsp) 那套「在刷卡页塞一颗 Google Pay 按钮」的思路搬到**荣耀钱包**：
+AI赋能把 [mipay_gpay_lsp](https://github.com/MasterOfStar/mipay_gpay_lsp) 那套「在刷卡页塞一颗 Google Pay 按钮」的思路搬到**荣耀钱包**：
 双击电源键 → 荣耀钱包刷卡页 → 右下角多一颗 GPay 药丸按钮 → 点一下 = NFC 默认支付切到 Google + 拉起 Google Wallet 的 Quickdraw 刷卡页（锁屏下也直接出）。
 
 - 产物：`dist/honor_wallet_gpay_lsp_1.1.0.apk`（37,533 字节 / 36.7 KiB，versionCode 6）— 正式版
